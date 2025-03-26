@@ -38,7 +38,7 @@ def token_required(f):
         return f(*args, **kwargs)
     return decorated
 
-# Signup Route
+
 @app.route('/signup', methods=['POST'])
 def signup():
     data = request.get_json()
@@ -59,7 +59,7 @@ def signup():
 
     return jsonify({'message': 'User registered successfully. Please login to get QR code.'})
 
-# Login Route
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -87,7 +87,7 @@ def login():
 
     return send_file(buffer, mimetype='image/png')
 
-# Verify OTP Route
+
 @app.route('/verify_otp', methods=['POST'])
 def verify_otp():
     if 'username' not in session:
